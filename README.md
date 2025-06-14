@@ -1,3 +1,5 @@
+[Live Site](https://ruchibadkur.github.io/carousel-react/)
+
 🎭 Mock Interview Simulation – React Image Carousel
 👨‍💼 Interviewer:
 Hi Ruchi! For this round, I'd like you to build a simple image carousel in React. It should have Previous and Next buttons, and when you’re on the first image and click "Previous," it should go to the last image. Similarly, clicking "Next" on the last image should take you back to the first one.
@@ -20,20 +22,21 @@ const images = [
   'https://via.placeholder.com/400x200?text=Image+2',
   'https://via.placeholder.com/400x200?text=Image+3'
 ];
+```
 Then, I’ll use the useState hook to track the index of the currently displayed image:
+
+```
+const [currentIndex, setCurrentIndex] = useState(0);
 ```
 
-const [currentIndex, setCurrentIndex] = useState(0);
 Next, I’ll write the function to handle the Previous button:
 
 ```
-
 const handlePrev = () => {
   setCurrentIndex(prevIndex =>
     prevIndex === 0 ? images.length - 1 : prevIndex - 1
   );
 };
-
 ```
 This function checks if we’re already at the first image (index 0). If we are, it loops to the last index, otherwise it goes back one step.
 
@@ -45,7 +48,6 @@ const handleNext = () => {
     prevIndex === images.length - 1 ? 0 : prevIndex + 1
   );
 };
-
 ```
 This does the opposite — if we're already at the last image, it resets to index 0, otherwise it moves forward.
 
@@ -57,7 +59,6 @@ Then, in the return block, I’ll render the current image using the currentInde
   <button onClick={handlePrev}>Previous</button>
   <button onClick={handleNext}>Next</button>
 </div>
-
 ```
 This should complete the basic image carousel with the cycling behavior.
 
